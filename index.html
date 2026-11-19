@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d1a">
+<meta name="description" content="BRICKFORGE connects browser AI to Roblox Studio. Programming at the speed of thoughts.">
+<title>BRICKFORGE — Programming at the speed of thoughts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080d1a;--panel:#0e1729;--panel2:#111f36;--blue:#3987ff;--cyan:#54d8ff;--text:#edf4ff;--muted:#91a4c2;--line:#1d3150}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 75% 0%,#102c57 0,transparent 38%),var(--bg);color:var(--text);font-family:'Space Grotesk',sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}.wrap{width:min(1160px,calc(100% - 40px));margin:auto}
+nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff10}
+.brand{display:flex;align-items:center;gap:11px;font-weight:700;letter-spacing:1.8px}.mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(145deg,#64caff,#2365e8);display:grid;place-items:center;box-shadow:0 0 28px #2787ff66;color:#071226;font-size:20px;font-weight:700}
+.navlinks{display:flex;gap:28px;color:var(--muted);font-size:14px}.navlinks a:hover{color:white}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 19px;border-radius:10px;background:linear-gradient(120deg,#4a9cff,#2463e8);color:white;font-weight:700;border:1px solid #8dc4ff55;box-shadow:0 8px 30px #1d68df38;transition:.2s;cursor:pointer;font-family:inherit}.btn:hover{transform:translateY(-2px);filter:brightness(1.12)}.btn.secondary{background:#14233b;border:1px solid #29476f;box-shadow:none;color:#dceaff}
+.hero{min-height:650px;display:grid;grid-template-columns:1.03fr .97fr;align-items:center;gap:45px;padding:75px 0 90px;position:relative}
+.eyebrow{font:12px 'DM Mono',monospace;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:10px}.dot{width:7px;height:7px;background:#53e4a4;border-radius:50%;box-shadow:0 0 12px #53e4a4}
+h1{font-size:clamp(52px,7vw,88px);line-height:.98;letter-spacing:-5px;margin:22px 0 18px}h1 span{background:linear-gradient(100deg,#fff 10%,#65baff 55%,#5c7dff);background-clip:text;color:transparent}
+.slogan{font-size:21px;color:#c5d8f6;margin:0 0 16px}.intro{font-size:16px;line-height:1.8;color:var(--muted);max-width:520px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.micro{font:11px 'DM Mono',monospace;color:#7086a8;margin-top:18px}
+.visual{position:relative;min-height:440px;display:grid;place-items:center}.glow{position:absolute;width:330px;height:330px;border-radius:50%;background:#1b75ff35;filter:blur(65px)}
+.code-window{position:relative;width:min(100%,480px);background:#0b1424;border:1px solid #29466e;border-radius:17px;box-shadow:0 30px 90px #0009,0 0 55px #167aff20;overflow:hidden;transform:rotate(2deg)}
+.windowbar{height:45px;background:#101d31;border-bottom:1px solid #263b5b;display:flex;align-items:center;padding:0 15px;gap:7px}.traffic{width:8px;height:8px;border-radius:50%;background:#ff6d79}.traffic:nth-child(2){background:#ffcf65}.traffic:nth-child(3){background:#4dd99b}.filename{margin-left:10px;color:#8fa6c9;font:11px 'DM Mono',monospace}
+.code{padding:23px 22px 27px;font:13px/2 'DM Mono',monospace;color:#b7c9e8;min-height:260px}.ln{color:#526987;display:inline-block;width:25px}.kw{color:#75aaff}.fn{color:#68dfd1}.str{color:#e5c47a}.comment{color:#657c9e}.cursor{display:inline-block;width:7px;height:15px;background:#63c5ff;vertical-align:middle;animation:blink 1s steps(2) infinite}@keyframes blink{50%{opacity:0}}
+.float-tag{position:absolute;background:#112541;border:1px solid #2b5487;padding:11px 14px;border-radius:11px;font:11px 'DM Mono',monospace;color:#b9d8ff;box-shadow:0 12px 35px #0007}.tag1{top:45px;right:-5px}.tag2{bottom:48px;left:-8px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:14px;background:#0c1525b8;margin-top:-10px}.stat{padding:21px 25px}.stat+.stat{border-left:1px solid var(--line)}.stat strong{display:block;font-size:20px}.stat small{color:var(--muted);font:11px 'DM Mono',monospace}
+section{padding:95px 0}.section-head{max-width:650px;margin-bottom:35px}.section-head h2{font-size:clamp(32px,4vw,48px);letter-spacing:-2px;margin:13px 0}.section-head p{color:var(--muted);line-height:1.7}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:linear-gradient(145deg,#111f35,#0c1525);border:1px solid var(--line);border-radius:15px;padding:24px;min-height:190px}.ico{width:40px;height:40px;border-radius:11px;background:#183b69;color:#75bdff;display:grid;place-items:center;font-size:20px;margin-bottom:22px}.card h3{margin:0 0 8px}.card p{color:var(--muted);font-size:14px;line-height:1.65;margin:0}
+.playbox{background:linear-gradient(130deg,#10213b,#0c1424);border:1px solid #28466e;border-radius:18px;padding:30px;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}.playbox h3{font-size:27px;margin:10px 0}.playbox p{color:var(--muted);line-height:1.7}.game{background:#08101e;border:1px solid #263e60;border-radius:14px;padding:20px;text-align:center}.score{font:12px 'DM Mono',monospace;color:#9db4d7}.target{height:150px;display:grid;place-items:center}.target button{width:75px;height:75px;border-radius:18px;border:1px solid #8acaff;background:linear-gradient(145deg,#56baff,#2464e7);color:#071326;font-size:30px;cursor:pointer;box-shadow:0 0 35px #2c8fff66;transition:.12s}.target button:active{transform:scale(.9)}.game button.start{padding:10px 16px;border:1px solid #315783;background:#142945;color:#dcecff;border-radius:8px;cursor:pointer;font:12px 'DM Mono',monospace}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.step{padding:22px;border-left:2px solid #327eea;background:#0d1728;border-radius:0 12px 12px 0}.step b{font:12px 'DM Mono',monospace;color:#65baff}.step h3{margin:12px 0 7px}.step p{color:var(--muted);font-size:13px;line-height:1.6}
+.download{border:1px solid #2b5689;background:radial-gradient(ellipse at 80% 20%,#1c4b8a66,transparent 50%),linear-gradient(120deg,#101f37,#0c1423);border-radius:20px;padding:48px;display:flex;align-items:center;justify-content:space-between;gap:25px}.download h2{font-size:38px;letter-spacing:-2px;margin:8px 0}.download p{color:var(--muted);max-width:580px;line-height:1.7}
+footer{padding:30px 0 45px;border-top:1px solid #ffffff12;color:#7186a5;font:11px 'DM Mono',monospace;display:flex;justify-content:space-between;gap:15px}
+
+.lever-panel{margin-top:25px;padding:18px;background:#091426;border:1px solid #29466e;border-radius:13px;max-width:390px}
+.lever-head{display:flex;align-items:center;justify-content:space-between;font:11px 'DM Mono',monospace;color:#8fa8cb;letter-spacing:1px}
+.lever-head strong{font-size:27px;color:#eaf5ff}.lever-head small{font-size:10px;color:#7e9bc2}
+.speed-lever{width:100%;margin:23px 0 8px;accent-color:#50aaff;cursor:grab}
+.lever-labels{display:flex;justify-content:space-between;color:#6f86a8;font:9px 'DM Mono',monospace}
+.speed-readout{display:flex;align-items:center;gap:8px;margin-top:18px;color:#7ce5bd;font:10px 'DM Mono',monospace}
+.speed-readout .dot{background:#53e4a4}
+.sim-side{display:grid;gap:18px;min-width:0}
+.treadmill{position:relative;padding:18px 18px 0;background:linear-gradient(145deg,#0b1729,#101f35);border:1px solid #29466e;border-radius:14px;overflow:hidden}
+.treadmill-screen{width:130px;margin:0 auto 17px;padding:9px 12px;text-align:center;background:#06101e;border:1px solid #2d5b8b;border-radius:7px;font:8px 'DM Mono',monospace;color:#6e9acb}
+.treadmill-screen b{display:block;font-size:25px;color:#6dd7ff;margin:5px}.treadmill-screen small{font-size:7px;color:#7891b5}
+.belt-frame{height:82px;max-width:370px;margin:auto;transform:perspective(200px) rotateX(8deg);background:#050b14;border:5px solid #314866;border-radius:9px;overflow:hidden}
+.belt{height:100%;display:flex;gap:24px;align-items:center;width:max-content;animation:beltMove 1s linear infinite;animation-duration:var(--belt-duration,1s)}
+.belt-lines{height:55px;width:13px;flex:none;background:linear-gradient(90deg,#182c45,#315477,#182c45);border-radius:3px;box-shadow:0 0 9px #4c9eff22}
+@keyframes beltMove{to{transform:translateX(-37px)}}
+.treadmill-base{height:13px;max-width:390px;margin:auto;display:flex;justify-content:space-between;padding:0 15px}.treadmill-base span{width:9px;height:13px;background:#607c9e}
+.treadmill-foot{height:8px;width:85%;margin:0 auto;background:#263e5e;border-radius:8px 8px 0 0}
+.live-code{width:100%;transform:none}.live-code .code{min-height:0;padding:14px 17px;font-size:11px;line-height:1.8;overflow-x:auto}.live-pill{margin-left:auto;color:#66e3b0;font:9px 'DM Mono',monospace}
+
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding:65px 0}.visual{min-height:380px}.cards,.steps{grid-template-columns:1fr}.playbox{grid-template-columns:1fr}.lever-panel{max-width:none}.treadmill{padding-left:10px;padding-right:10px}.download{display:block;padding:30px}.download .btn{margin-top:10px}.navlinks{display:none}.stats{grid-template-columns:1fr}.stat+.stat{border-left:0;border-top:1px solid var(--line)}h1{letter-spacing:-3px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+ <a class="brand" href="#"><span class="mark">B</span> BRICKFORGE</a>
+ <div class="navlinks"><a href="#features">Features</a><a href="#play">Playground</a><a href="#setup">Setup</a></div>
+ <a class="btn" href="BRICKFORGE-full.zip" download>↓ Download</a>
+</nav>
+<main>
+<section class="hero">
+ <div>
+  <div class="eyebrow"><span class="dot"></span> THE CREATOR TOOLKIT</div>
+  <h1>BUILD<br><span>WITHOUT</span><br>LIMITS.</h1>
+  <p class="slogan">Programming at the speed of thoughts.</p>
+  <p class="intro">Your AI. Your browser. Your Roblox Studio. BRICKFORGE connects them, so you can turn ideas into builds without constantly switching tools.</p>
+  <div class="actions"><a class="btn" href="BRICKFORGE-full.zip" download>↓ Download BRICKFORGE <span>↗</span></a><a class="btn secondary" href="#features">Explore features&nbsp; →</a></div>
+  <div class="micro">WINDOWS · CHROME / EDGE · ROBLOX STUDIO</div>
+ </div>
+ <div class="visual">
+  <div class="glow"></div>
+  <div class="float-tag tag1">● AI CONNECTED</div><div class="float-tag tag2">ROBLOX STUDIO // READY</div>
+  <div class="code-window"><div class="windowbar"><i class="traffic"></i><i class="traffic"></i><i class="traffic"></i><span class="filename">your_next_idea.lua</span></div>
+   <div class="code">
+    <div><span class="ln">01</span><span class="comment">-- imagine it. build it.</span></div>
+    <div><span class="ln">02</span><span class="kw">local</span> world = <span class="fn">Workspace</span></div>
+    <div><span class="ln">03</span><span class="kw">local</span> idea = <span class="str">"something awesome"</span></div>
+    <div><span class="ln">04</span></div>
+    <div><span class="ln">05</span><span class="fn">Build</span>(idea, world)</div>
+    <div><span class="ln">06</span><span class="comment">-- let your creativity cook</span></div>
+    <div><span class="ln">07</span><span class="cursor"></span></div>
+   </div>
+  </div>
+ </div>
+</section>
+<div class="stats"><div class="stat"><strong>3 AI platforms</strong><small>CHATGPT · CLAUDE · GEMINI</small></div><div class="stat"><strong>1 workflow</strong><small>BROWSER → BRIDGE → STUDIO</small></div><div class="stat"><strong>Open source</strong><small>GPL-3.0 LICENSE</small></div></div>
+<section id="features">
+ <div class="section-head"><div class="eyebrow">01 / WHAT IT DOES</div><h2>Less tab-hopping.<br>More building.</h2><p>BRICKFORGE is a local bridge and browser extension that connects supported AI chat pages with Roblox Studio's MCP server.</p></div>
+ <div class="cards">
+  <article class="card"><div class="ico">⌘</div><h3>AI to Studio</h3><p>Connect ChatGPT, Claude, or Gemini in your browser to a Roblox Studio place through the local bridge.</p></article>
+  <article class="card"><div class="ico">⌁</div><h3>Stay in flow</h3><p>Start a session from the browser bar and work from your AI chat while BRICKFORGE handles the connection.</p></article>
+  <article class="card"><div class="ico">⬡</div><h3>Roblox asset tools</h3><p>Includes Roblox account linking and Open Cloud asset upload options, with credentials kept on your PC.</p></article>
+ </div>
+</section>
+<section id="play">
+ <div class="section-head"><div class="eyebrow">02 / LIVE CODE LAB</div><h2>Put your code in motion.</h2><p>Take control of the treadmill. Move the lever to change its speed and watch the code update live. A little interactive preview, because static pages are so last century.</p></div>
+ <div class="playbox">
+  <div>
+   <div class="eyebrow">TREADMILL SIMULATOR / 001</div>
+   <h3>Speed control.</h3>
+   <p>Drag the lever up to accelerate or down to slow the belt. The live code panel updates with the selected speed.</p>
+   <div class="lever-panel">
+    <div class="lever-head"><span>POWER LEVER</span><strong><span id="speedValue">5</span> <small>SPD</small></strong></div>
+    <input id="speedLever" class="speed-lever" type="range" min="1" max="10" value="5" aria-label="Treadmill speed">
+    <div class="lever-labels"><span>1 · SLOW</span><span>10 · MAX</span></div>
+    <div class="speed-readout"><span class="dot"></span><span id="speedState">CRUISING</span></div>
+   </div>
+  </div>
+  <div class="sim-side">
+   <div class="treadmill">
+    <div class="treadmill-screen"><span>BRICKFORGE // RUN MODE</span><b id="screenSpeed">05.0</b><small>KM/H SIMULATION</small></div>
+    <div class="belt-frame"><div class="belt" id="belt"><div class="belt-lines"></div><div class="belt-lines"></div><div class="belt-lines"></div><div class="belt-lines"></div><div class="belt-lines"></div><div class="belt-lines"></div></div></div>
+    <div class="treadmill-base"><span></span><span></span></div>
+    <div class="treadmill-foot"></div>
+   </div>
+   <div class="code-window live-code"><div class="windowbar"><i class="traffic"></i><i class="traffic"></i><i class="traffic"></i><span class="filename">treadmill_controller.lua</span><span class="live-pill">● LIVE</span></div>
+    <div class="code">
+     <div><span class="ln">01</span><span class="kw">local</span> treadmill = <span class="fn">Workspace</span>.Treadmill</div>
+     <div><span class="ln">02</span><span class="kw">local</span> speed = <span class="str" id="codeSpeed">5</span></div>
+     <div><span class="ln">03</span></div>
+     <div><span class="ln">04</span><span class="kw">while</span> <span class="kw">true</span> <span class="kw">do</span></div>
+     <div><span class="ln">05</span>&nbsp;&nbsp;treadmill.Speed = speed</div>
+     <div><span class="ln">06</span>&nbsp;&nbsp;<span class="fn">task.wait</span>(0.1)</div>
+     <div><span class="ln">07</span><span class="kw">end</span></div>
+     <div><span class="ln">08</span><span class="comment">-- speed updated successfully</span></div>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+<section id="setup">
+ <div class="section-head"><div class="eyebrow">03 / GET STARTED</div><h2>Three steps to launch.</h2><p>Download the package, extract it, and follow the included setup guide. BRICKFORGE is a ZIP package, not a one-click installer.</p></div>
+ <div class="steps">
+  <div class="step"><b>STEP 01</b><h3>Download & extract</h3><p>Download the ZIP and choose Extract All. Do not run start.bat from inside the ZIP.</p></div>
+  <div class="step"><b>STEP 02</b><h3>Prepare Studio</h3><p>Install Python 3.9+ if needed, open a Roblox Studio place, and enable Studio as an MCP Server.</p></div>
+  <div class="step"><b>STEP 03</b><h3>Connect the extension</h3><p>Run start.bat, load the extension folder through Chrome or Edge developer mode, then start a session on a supported AI site.</p></div>
+ </div>
+</section>
+<section>
+ <div class="download"><div><div class="eyebrow">READY TO BUILD?</div><h2>Make the idea real.</h2><p>Get the complete BRICKFORGE package, including the browser extension, local bridge, setup files, and README.</p></div><a class="btn" href="BRICKFORGE-full.zip" download>↓ Download ZIP</a></div>
+</section>
+</main>
+<footer><span>© 2026 BRICKFORGE · BUILT FOR CREATORS</span><span>PROGRAMMING AT THE SPEED OF THOUGHTS.</span></footer>
+</div>
+<script>
+const lever=document.getElementById('speedLever');
+const speedValue=document.getElementById('speedValue');
+const codeSpeed=document.getElementById('codeSpeed');
+const screenSpeed=document.getElementById('screenSpeed');
+const speedState=document.getElementById('speedState');
+const belt=document.getElementById('belt');
+function updateTreadmill(){
+ const speed=Number(lever.value);
+ speedValue.textContent=speed;
+ codeSpeed.textContent=speed;
+ screenSpeed.textContent=(speed/1).toFixed(1).padStart(4,'0');
+ const duration=(2.2-(speed-1)*0.19).toFixed(2)+'s';
+ belt.style.setProperty('--belt-duration',duration);
+ speedState.textContent=speed<=3?'SLOW MODE':speed<=7?'CRUISING':'FULL SPEED';
+}
+lever.addEventListener('input',updateTreadmill);
+updateTreadmill();
+</script>
+</body>
+</html>
